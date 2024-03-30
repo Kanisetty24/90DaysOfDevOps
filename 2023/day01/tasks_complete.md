@@ -22,6 +22,7 @@ Vertical Scaling:
 Vertical scaling, also known as scaling up, involves increasing the capacity of existing resources, such as upgrading a server's CPU, memory, or storage capacity. For example, if a database server is reaching its performance limits due to increased data volume, vertical scaling might involve upgrading the server hardware to a more powerful configuration. This allows the server to handle more concurrent transactions or process larger datasets without the need to add additional servers.
 
 What is Infrastructure?
+
 Infrastructure refers to all the necessary components required to support and run software applications. This includes servers, containers, networking components, storage systems, and any other hardware or software resources needed for the application to function properly.
 
 Why DevOps is Important?
