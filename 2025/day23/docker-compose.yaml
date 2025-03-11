@@ -4,7 +4,7 @@ services:
   web:
     image: mkanisetty/my-flask-app-image:latest
     ports:
-      - "8001:8001"
+      - "8001:5000"
     volumes:
       - my_flask_volume:/app
 
