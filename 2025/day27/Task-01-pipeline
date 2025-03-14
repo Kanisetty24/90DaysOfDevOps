@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Code') {
+            steps {
+                git url: 'https://github.com/Kanisetty24/Django-cicd'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t mkanisetty/django-app:latest .'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'docker run -d -p 8000:8000 mkanisetty/django-app:latest'
+            }
+        }
+    }
+}
