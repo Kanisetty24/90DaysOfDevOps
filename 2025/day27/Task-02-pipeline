@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        IMAGE_NAME = 'mkanisetty/django-app:latest'
-        CONTAINER_NAME = 'django-app'
-    }
-
     stages {
         stage('Clone Code') {
             steps {
@@ -15,16 +10,16 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --config /tmp -t $IMAGE_NAME .'
+                sh 'docker build -t mkanisetty/django-app:latest .'
             }
         }
 
         stage('Deploy') {
             steps {
                 sh '''
-                    docker stop $CONTAINER_NAME || true
-                    docker rm $CONTAINER_NAME || true
-                    docker run -d -p 8000:8000 --name $CONTAINER_NAME $IMAGE_NAME
+                docker stop django-app || true
+                docker rm django-app || true
+                docker run -d -p 8000:8000 --name django-app mkanisetty/django-app:latest
                 '''
             }
         }
